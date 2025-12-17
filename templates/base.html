@@ -13,21 +13,34 @@
 <body>
     <header class="site-header">
         <div class="site-shell">
-            <div class="brand-mark">Giftorium</div>
+            <a class="brand-mark" href="{% url 'experiences:home' %}">
+                {% if studio_settings and studio_settings.logo %}
+                    <img src="{{ studio_settings.logo.url }}" alt="{{ studio_settings.studio_name }}" />
+                {% endif %}
+                <span>{{ studio_settings.studio_name|default:"Giftorium" }}</span>
+            </a>
             <nav class="site-nav">
                 <a href="{% url 'experiences:home' %}#portfolio">Portfolio</a>
                 <a href="{% url 'experiences:home' %}#projects">Projects</a>
                 <a href="{% url 'experiences:home' %}#services">Services</a>
+                <a href="{% url 'experiences:team' %}">Team</a>
                 <a href="{% url 'experiences:home' %}#contact">Contact</a>
             </nav>
         </div>
     </header>
 
     <main>
+        {% if messages %}
+            <div class="flash-stack">
+                {% for message in messages %}
+                    <div class="flash flash-{{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
         {% block content %}{% endblock content %}
     </main>
 
-    <footer class="site-footer" id="contact">
+    <footer class="site-footer">
         <div class="site-shell">
             <p>© {{ now|default:2025 }} Giftorium. Crafted in collaboration with daring producers.</p>
             <p>Email: <a href="mailto:hello@gogiftorium.com">hello@gogiftorium.com</a></p>

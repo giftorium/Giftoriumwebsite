@@ -7,4 +7,5 @@ app_name = 'experiences'
 urlpatterns = [
     path('', views.home, name='home'),
     path('portfolio/<slug:slug>/', views.portfolio_detail, name='portfolio-detail'),
+    path('team/', views.team, name='team'),
 ]

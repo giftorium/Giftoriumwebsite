@@ -64,6 +64,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'experiences.context_processors.studio_settings',
             ],
         },
     },
@@ -127,3 +128,11 @@ MEDIA_ROOT = Path(os.getenv('MEDIA_ROOT', str(BASE_DIR / 'media')))
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', 'hello@gogiftorium.com')
+INQUIRY_RECIPIENTS = [
+    email.strip()
+    for email in os.getenv('INQUIRY_RECIPIENTS', 'hello@gogiftorium.com, amir@gogiftorium.com').split(',')
+    if email.strip()
+]

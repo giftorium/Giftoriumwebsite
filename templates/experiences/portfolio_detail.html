@@ -17,7 +17,7 @@
                     {% if item.year %}<span>{{ item.year }}</span>{% endif %}
                 </div>
             {% endif %}
-            <a class="primary-cta" href="#contact">Start a collaboration</a>
+            <a class="primary-cta" href="{% url 'experiences:home' %}#contact">{{ studio_settings.cta_label|default:"Start a collaboration" }}</a>
         </div>
         <div class="portfolio-detail-card">
             <h2>Scope highlights</h2>

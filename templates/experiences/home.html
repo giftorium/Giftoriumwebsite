@@ -6,11 +6,11 @@
 <section class="hero hero-portfolio">
     <div class="site-shell hero-grid">
         <div>
-            <p class="eyebrow">Portfolio First</p>
-            <h1>{{ studio_profile.tagline }}</h1>
-            <p>{{ studio_profile.intro }}</p>
-            <a class="primary-cta" href="#portfolio">Preview the portfolio</a>
-            <p class="hero-note">Each commission is built as a cinematic atmosphere. Scroll to explore.</p>
+            <p class="eyebrow">{{ studio_settings.eyebrow|default:"Portfolio First" }}</p>
+            <h1>{{ studio_settings.tagline|default:"Immersive environments for bold cultural moments" }}</h1>
+            <p>{{ studio_settings.intro|default:"Giftorium collaborates with museums, brands, and cultural leaders to craft sensorial experiences that guests remember well after the lights dim." }}</p>
+            <a class="primary-cta" href="#portfolio">{{ studio_settings.cta_label|default:"Start a collaboration" }}</a>
+            <p class="hero-note">{{ studio_settings.hero_note|default:"Each commission is built as a cinematic atmosphere. Scroll to explore." }}</p>
         </div>
         <div class="hero-card hero-feature">
             {% if featured_portfolio %}
@@ -100,6 +100,36 @@
                 </article>
             {% endfor %}
         </div>
+    </div>
+</section>
+
+<section class="contact-panel" id="contact">
+    <div class="site-shell contact-grid">
+        <div>
+            <p class="eyebrow">Start a collaboration</p>
+            <h2>Share a few details</h2>
+            <p>We respond within two days with next steps, moodboards, or a working session link.</p>
+            <ul class="contact-meta">
+                <li>Email: <a href="mailto:hello@gogiftorium.com">hello@gogiftorium.com</a></li>
+                <li>Studios: Los Angeles · Dubai · Remote</li>
+            </ul>
+        </div>
+        <form method="post" class="inquiry-form">
+            {% csrf_token %}
+            {{ inquiry_form.non_field_errors }}
+            <div class="form-grid">
+                {% for field in inquiry_form %}
+                    <label>
+                        <span>{{ field.label }}</span>
+                        {{ field }}
+                        {% if field.errors %}
+                            <small class="field-error">{{ field.errors|striptags }}</small>
+                        {% endif %}
+                    </label>
+                {% endfor %}
+            </div>
+            <button type="submit" class="primary-cta submit-btn">Send inquiry</button>
+        </form>
     </div>
 </section>
 {% endblock content %}

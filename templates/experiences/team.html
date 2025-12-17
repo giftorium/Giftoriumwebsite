@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Team · Giftorium{% endblock title %}
+
+{% block content %}
+<section class="team-hero">
+    <div class="site-shell team-hero-grid">
+        <div>
+            <p class="eyebrow">Studio Principles</p>
+            <h1>The duo behind Giftorium</h1>
+            <p>Creative Director Amir Parsa shapes the narrative and atmosphere, while Milad Ameri leads the tech and strategy stack that brings each experience to life.</p>
+        </div>
+        <div class="team-hero-card">
+            <p>We believe in cinematic atmospheres, multisensory layers, and radical hospitality. Interested in joining the roster? Email <a href="mailto:hello@gogiftorium.com">hello@gogiftorium.com</a>.</p>
+        </div>
+    </div>
+</section>
+
+<section class="team-grid-section">
+    <div class="site-shell">
+        <div class="team-grid">
+            {% for member in team_members %}
+                <article class="team-card">
+                    {% if member.headshot %}
+                        <img src="{{ member.headshot.url }}" alt="Portrait of {{ member.name }}">
+                    {% endif %}
+                    <div>
+                        <p class="team-role">{{ member.role }}</p>
+                        <h3>{{ member.name }}</h3>
+                        <p>{{ member.bio }}</p>
+                        {% if member.social_link %}
+                            <a class="ghost-link" href="{{ member.social_link }}" target="_blank" rel="noopener">Connect ↗</a>
+                        {% endif %}
+                    </div>
+                </article>
+            {% empty %}
+                <p>Team bios are in progress. Check back soon.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock content %}
