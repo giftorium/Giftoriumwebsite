@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}Giftorium Studio · Immersive Experience Design{% endblock title %}
+
+{% block content %}
+<section class="hero">
+    <div class="site-shell hero-grid">
+        <div>
+            <p class="eyebrow">Experience Design Studio</p>
+            <h1>{{ studio_profile.tagline }}</h1>
+            <p>{{ studio_profile.intro }}</p>
+            <a class="primary-cta" href="#contact">{{ studio_profile.cta_label }}</a>
+        </div>
+        <div class="hero-card">
+            <p>Currently collaborating with cultural festivals, sonic curators, and future-forward hospitality teams.</p>
+            <p class="hero-note">Bookings available for Q2 showcases.</p>
+        </div>
+    </div>
+</section>
+
+<section id="projects" class="projects">
+    <div class="site-shell">
+        <div class="section-head">
+            <p class="eyebrow">Selected Work</p>
+            <h2>Recent immersive environments</h2>
+        </div>
+        <div class="card-grid">
+            {% for project in projects %}
+                <article class="project-card">
+                    <div class="card-meta">{{ project.location }}</div>
+                    <h3>{{ project.title }}</h3>
+                    <p>{{ project.summary }}</p>
+                </article>
+            {% empty %}
+                <p>Fresh work is in progress — check back soon.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section id="services" class="services">
+    <div class="site-shell">
+        <div class="section-head">
+            <p class="eyebrow">Capabilities</p>
+            <h2>How we partner</h2>
+        </div>
+        <ul class="service-list">
+            {% for item in services %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+<section class="testimonials">
+    <div class="site-shell">
+        <div class="section-head">
+            <p class="eyebrow">Testimonials</p>
+            <h2>Notes from collaborators</h2>
+        </div>
+        <div class="card-grid">
+            {% for quote in testimonials %}
+                <article class="quote-card">
+                    <p class="quote">“{{ quote.quote }}”</p>
+                    <p class="author">{{ quote.author }}</p>
+                </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock content %}
