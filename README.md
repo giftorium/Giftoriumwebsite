@@ -26,6 +26,16 @@ Visit http://127.0.0.1:8000/ to view the showcase homepage.
 
 ## Next Steps
 
-1. Replace placeholder project, service, and testimonial data in `experiences/views.py` with real studio content or pull from a database.
+1. Add real projects, services, testimonials, and portfolio entries through the Django admin.
 2. Update imagery, fonts, and colors inside `static/css/site.css` to match your visual identity.
 3. Add additional pages (case studies, inquiry form) by creating new templates and URL routes in the `experiences` app.
+
+## Managing the portfolio
+
+1. Run migrations and create an admin user:
+	```powershell
+	".venv\Scripts\python" manage.py migrate
+	".venv\Scripts\python" manage.py createsuperuser
+	```
+2. Visit `/admin/` to add Portfolio Items, Projects, Services, and Testimonials. Upload hero and gallery images per entry.
+3. Uploaded media is stored in the `media/` directory locally. In production, configure `MEDIA_URL` to point to S3 or another persistent storage provider.

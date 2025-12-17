@@ -10,11 +10,13 @@
             <h1>{{ item.title }}</h1>
             <p class="portfolio-detail-medium">{{ item.medium }}</p>
             <p>{{ item.description }}</p>
-            <div class="portfolio-detail-meta">
-                <span>{{ item.location }}</span>
-                <span>·</span>
-                <span>{{ item.year }}</span>
-            </div>
+            {% if item.location or item.year %}
+                <div class="portfolio-detail-meta">
+                    {% if item.location %}<span>{{ item.location }}</span>{% endif %}
+                    {% if item.location and item.year %}<span>·</span>{% endif %}
+                    {% if item.year %}<span>{{ item.year }}</span>{% endif %}
+                </div>
+            {% endif %}
             <a class="primary-cta" href="#contact">Start a collaboration</a>
         </div>
         <div class="portfolio-detail-card">
@@ -27,7 +29,9 @@
             <p class="portfolio-detail-outcome">{{ item.outcome }}</p>
         </div>
     </div>
-    <div class="portfolio-hero-visual" style="background-image: url('{{ item.image }}');" aria-hidden="true"></div>
+    {% if item.hero_image %}
+        <div class="portfolio-hero-visual" style="background-image: url('{{ item.hero_image.url }}');" aria-hidden="true"></div>
+    {% endif %}
 </section>
 
 <section class="portfolio-gallery">
@@ -37,9 +41,9 @@
             <h2>Textures + light cues</h2>
         </div>
         <div class="gallery-grid">
-            {% for shot in item.gallery %}
+            {% for shot in item.gallery_images.all %}
                 <figure>
-                    <img src="{{ shot }}" alt="{{ item.title }} documentation frame {{ forloop.counter }}">
+                    <img src="{{ shot.image.url }}" alt="{{ shot.alt_text|default:item.title }} documentation frame {{ forloop.counter }}">
                 </figure>
             {% empty %}
                 <p>Gallery coming soon.</p>
@@ -57,7 +61,9 @@
         <div class="portfolio-grid">
             {% for sibling in other_items|slice:':2' %}
                 <a class="portfolio-card" href="{% url 'experiences:portfolio-detail' sibling.slug %}">
-                    <img src="{{ sibling.image }}" alt="{{ sibling.title }} visualization">
+                    {% if sibling.hero_image %}
+                        <img src="{{ sibling.hero_image.url }}" alt="{{ sibling.title }} visualization">
+                    {% endif %}
                     <div class="portfolio-info">
                         <p class="portfolio-meta">{{ sibling.medium }}</p>
                         <h3>{{ sibling.title }}</h3>
