@@ -1,13 +1,14 @@
 :root {
-    --bg: #fff7f1;
-    --bg-secondary: #ffe4f1;
-    --fg: #2b1538;
-    --accent: #ff5f6d;
-    --accent-glow: #ffd166;
-    --muted: rgba(43, 21, 56, 0.65);
-    --card: rgba(255, 255, 255, 0.9);
-    --border: rgba(43, 21, 56, 0.12);
-    --shadow: 0 20px 60px rgba(255, 111, 109, 0.25);
+    --bg: #100813;
+    --bg-secondary: #1b111f;
+    --fg: #f5f0ea;
+    --accent: #ff6f7b;
+    --accent-glow: #ffa160;
+    --muted: rgba(245, 240, 234, 0.6);
+    --card: rgba(16, 10, 19, 0.85);
+    --card-fade: rgba(255, 255, 255, 0.04);
+    --border: rgba(245, 240, 234, 0.16);
+    --shadow: 0 25px 60px rgba(2, 0, 6, 0.6);
     font-size: 18px;
 }
 
@@ -18,7 +19,7 @@
 body {
     margin: 0;
     font-family: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: radial-gradient(circle at 20% 15%, var(--bg), var(--bg-secondary) 45%, #f8e1ff 70%, #f5f2ff 100%);
+    background: radial-gradient(circle at 18% 12%, var(--bg-secondary), var(--bg) 55%, #070309 100%);
     color: var(--fg);
     line-height: 1.6;
 }
@@ -33,8 +34,8 @@ body {
 .site-footer {
     border-bottom: 1px solid var(--border);
     border-top: 1px solid var(--border);
-    background: rgba(255, 255, 255, 0.65);
-    backdrop-filter: blur(12px);
+    background: rgba(6, 4, 9, 0.85);
+    backdrop-filter: blur(14px);
 }
 
 .site-header {
@@ -87,6 +88,10 @@ body {
     padding-top: 3rem;
 }
 
+.hero-portfolio {
+    padding-bottom: 1rem;
+}
+
 .hero-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -101,66 +106,59 @@ body {
 }
 
 .primary-cta {
-    position: relative;
     display: inline-flex;
     margin-top: 1.5rem;
-    padding: 0.95rem 2.6rem 0.95rem 3.4rem;
+    padding: 0.95rem 2.4rem;
     background: linear-gradient(120deg, var(--accent), var(--accent-glow));
-    color: var(--fg);
+    color: #0b050f;
     font-weight: 600;
     text-decoration: none;
     border-radius: 999px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    box-shadow: var(--shadow);
-    overflow: hidden;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
-    animation: giftPulse 3.2s ease-in-out infinite;
-    isolation: isolate;
 }
 
-.primary-cta::before,
-.primary-cta::after {
-    content: '';
-    position: absolute;
-    left: 1.1rem;
-    transition: transform 0.35s ease, background 0.35s ease;
-    pointer-events: none;
+.hero-note {
+    margin-top: 1rem;
+    color: var(--muted);
+    max-width: 36ch;
 }
 
-.primary-cta::before {
-    top: 0.2rem;
-    width: 34px;
-    height: 18px;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 8px 8px 2px 2px;
-    box-shadow: 0 6px 15px rgba(43, 21, 56, 0.15);
-    transform-origin: bottom;
+.hero-feature {
+    position: relative;
+    overflow: hidden;
+    border-radius: 26px;
+    background: linear-gradient(135deg, rgba(255, 111, 123, 0.2), rgba(16, 8, 19, 0.95));
 }
 
-.primary-cta::after {
-    top: 1.4rem;
-    width: 30px;
-    height: 18px;
-    border-radius: 4px;
-    border: 2px solid rgba(255, 255, 255, 0.8);
-    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.45);
+.hero-label {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+}
+
+.ghost-link {
+    margin-top: 1.25rem;
+    display: inline-flex;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+}
+
+.ghost-link:hover,
+.ghost-link:focus-visible {
+    text-decoration: underline;
 }
 
 .primary-cta:hover,
 .primary-cta:focus-visible {
-    transform: translateY(-3px);
-    box-shadow: 0 30px 50px rgba(255, 111, 109, 0.35);
-}
-
-.primary-cta:hover::before,
-.primary-cta:focus-visible::before {
-    transform: rotateX(70deg) translateY(-2px);
-}
-
-.primary-cta:hover::after,
-.primary-cta:focus-visible::after {
-    transform: translateY(2px);
+    transform: translateY(-2px);
+    box-shadow: 0 28px 55px rgba(0, 0, 0, 0.6);
 }
 
 .primary-cta:focus-visible {
@@ -172,8 +170,8 @@ body {
     background: var(--card);
     padding: 1.75rem;
     border: 1px solid var(--border);
-    border-radius: 20px;
-    box-shadow: 0 25px 60px rgba(32, 10, 46, 0.12);
+    border-radius: 22px;
+    box-shadow: var(--shadow);
 }
 
 .section-head h2 {
@@ -192,14 +190,14 @@ body {
     border-radius: 22px;
     border: 1px solid var(--border);
     min-height: 220px;
-    box-shadow: 0 18px 45px rgba(32, 10, 46, 0.08);
+    box-shadow: var(--shadow);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .project-card:hover,
 .quote-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 25px 55px rgba(32, 10, 46, 0.15);
+    box-shadow: 0 35px 65px rgba(0, 0, 0, 0.55);
 }
 
 .card-meta {
@@ -222,8 +220,53 @@ body {
     padding: 1.1rem 1.3rem;
     border: 1px solid var(--border);
     border-radius: 14px;
-    background: rgba(255, 255, 255, 0.7);
-    box-shadow: 0 10px 25px rgba(32, 10, 46, 0.08);
+    background: var(--card-fade);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.portfolio {
+    padding: 3rem 0;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.75rem;
+}
+
+.portfolio-card {
+    text-decoration: none;
+    color: inherit;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.portfolio-card:hover img {
+    transform: scale(1.04);
+}
+
+.portfolio-info {
+    padding: 1.5rem;
+}
+
+.portfolio-meta {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
 }
 
 .quote {
@@ -236,13 +279,108 @@ body {
     color: var(--muted);
 }
 
-@keyframes giftPulse {
-    0%, 100% {
-        filter: drop-shadow(0 8px 20px rgba(255, 111, 109, 0.35));
-    }
-    50% {
-        filter: drop-shadow(0 20px 35px rgba(255, 209, 102, 0.45));
-    }
+.portfolio-link {
+    display: inline-flex;
+    margin-top: 0.9rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+}
+
+.portfolio-card:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+.portfolio-detail-hero {
+    position: relative;
+    padding-top: 2rem;
+}
+
+.portfolio-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.portfolio-detail-medium {
+    font-size: 1.1rem;
+    color: var(--muted);
+    margin: 0.5rem 0 1.25rem;
+}
+
+.portfolio-detail-meta {
+    display: flex;
+    gap: 0.5rem;
+    color: var(--muted);
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.portfolio-detail-card {
+    background: var(--card);
+    padding: 2rem;
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.portfolio-detail-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 1.5rem;
+}
+
+.portfolio-detail-card li {
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.portfolio-detail-outcome {
+    color: var(--muted);
+}
+
+.portfolio-hero-visual {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    background-size: cover;
+    background-position: center;
+    filter: saturate(0.6) blur(6px);
+}
+
+.portfolio-gallery {
+    padding: 2rem 0 3rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-grid figure {
+    margin: 0;
+    border-radius: 22px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.portfolio-related {
+    padding-bottom: 4rem;
 }
 
 @media (max-width: 600px) {

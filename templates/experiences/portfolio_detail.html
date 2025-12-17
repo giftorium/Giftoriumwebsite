@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ item.title }} · Giftorium Portfolio{% endblock title %}
+
+{% block content %}
+<section class="portfolio-detail-hero">
+    <div class="site-shell portfolio-detail-grid">
+        <div>
+            <p class="eyebrow">Portfolio Focus</p>
+            <h1>{{ item.title }}</h1>
+            <p class="portfolio-detail-medium">{{ item.medium }}</p>
+            <p>{{ item.description }}</p>
+            <div class="portfolio-detail-meta">
+                <span>{{ item.location }}</span>
+                <span>·</span>
+                <span>{{ item.year }}</span>
+            </div>
+            <a class="primary-cta" href="#contact">Start a collaboration</a>
+        </div>
+        <div class="portfolio-detail-card">
+            <h2>Scope highlights</h2>
+            <ul>
+                {% for role in item.scope %}
+                    <li>{{ role }}</li>
+                {% endfor %}
+            </ul>
+            <p class="portfolio-detail-outcome">{{ item.outcome }}</p>
+        </div>
+    </div>
+    <div class="portfolio-hero-visual" style="background-image: url('{{ item.image }}');" aria-hidden="true"></div>
+</section>
+
+<section class="portfolio-gallery">
+    <div class="site-shell">
+        <div class="section-head">
+            <p class="eyebrow">Process Stills</p>
+            <h2>Textures + light cues</h2>
+        </div>
+        <div class="gallery-grid">
+            {% for shot in item.gallery %}
+                <figure>
+                    <img src="{{ shot }}" alt="{{ item.title }} documentation frame {{ forloop.counter }}">
+                </figure>
+            {% empty %}
+                <p>Gallery coming soon.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="portfolio-related">
+    <div class="site-shell">
+        <div class="section-head">
+            <p class="eyebrow">More work</p>
+            <h2>Additional atmospheres</h2>
+        </div>
+        <div class="portfolio-grid">
+            {% for sibling in other_items|slice:':2' %}
+                <a class="portfolio-card" href="{% url 'experiences:portfolio-detail' sibling.slug %}">
+                    <img src="{{ sibling.image }}" alt="{{ sibling.title }} visualization">
+                    <div class="portfolio-info">
+                        <p class="portfolio-meta">{{ sibling.medium }}</p>
+                        <h3>{{ sibling.title }}</h3>
+                        <p>{{ sibling.description }}</p>
+                        <span class="portfolio-link">View case study →</span>
+                    </div>
+                </a>
+            {% empty %}
+                <p>More portfolio entries are in development.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock content %}

@@ -3,17 +3,44 @@
 {% block title %}Giftorium · Immersive Experience Design{% endblock title %}
 
 {% block content %}
-<section class="hero">
+<section class="hero hero-portfolio">
     <div class="site-shell hero-grid">
         <div>
-            <p class="eyebrow">Experience Design Studio</p>
+            <p class="eyebrow">Portfolio First</p>
             <h1>{{ studio_profile.tagline }}</h1>
             <p>{{ studio_profile.intro }}</p>
-            <a class="primary-cta" href="#contact">{{ studio_profile.cta_label }}</a>
+            <a class="primary-cta" href="#portfolio">Preview the portfolio</a>
+            <p class="hero-note">Each commission is built as a cinematic atmosphere. Scroll to explore.</p>
         </div>
-        <div class="hero-card">
-            <p>Currently collaborating with cultural festivals, sonic curators, and future-forward hospitality teams.</p>
-            <p class="hero-note">Bookings available for Q2 showcases.</p>
+        <div class="hero-card hero-feature">
+            <p class="hero-label">Featured installation</p>
+            <h2>{{ featured_portfolio.title }}</h2>
+            <p>{{ featured_portfolio.description }}</p>
+            <a class="ghost-link" href="{% url 'experiences:portfolio-detail' featured_portfolio.slug %}">Open case study</a>
+        </div>
+    </div>
+</section>
+
+<section id="portfolio" class="portfolio">
+    <div class="site-shell">
+        <div class="section-head">
+            <p class="eyebrow">Portfolio</p>
+            <h2>Atmospheric studies</h2>
+        </div>
+        <div class="portfolio-grid">
+            {% for item in portfolio %}
+                <a class="portfolio-card" href="{% url 'experiences:portfolio-detail' item.slug %}">
+                    <img src="{{ item.image }}" alt="{{ item.title }} visualization">
+                    <div class="portfolio-info">
+                        <p class="portfolio-meta">{{ item.medium }}</p>
+                        <h3>{{ item.title }}</h3>
+                        <p>{{ item.description }}</p>
+                        <span class="portfolio-link">View the full case study →</span>
+                    </div>
+                </a>
+            {% empty %}
+                <p>Image studies coming soon.</p>
+            {% endfor %}
         </div>
     </div>
 </section>
