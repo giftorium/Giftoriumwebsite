@@ -6,7 +6,7 @@ def home(request):
 	studio_profile = {
 		"tagline": "Immersive environments for bold cultural moments",
 		"intro": (
-			"Giftorium Studio collaborates with museums, brands, and cultural leaders "
+			"Giftorium collaborates with museums, brands, and cultural leaders "
 			"to craft sensorial experiences that guests remember well after the lights dim."
 		),
 		"cta_label": "Start a collaboration",

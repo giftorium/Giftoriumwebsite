@@ -1,6 +1,6 @@
-# Giftorium Studio Showcase
+# Giftorium Showcase
 
-Django-based website for presenting experiential design case studies, capabilities, and testimonials. The project ships with a single "experiences" app, reusable base template, and starter styling so you can focus on storytelling and assets.
+Django-based website for presenting experiential design case studies, capabilities, and testimonials for Giftorium (gogiftorium.com). The project ships with a single "experiences" app, reusable base template, and starter styling so you can focus on storytelling and assets.
 
 ## Requirements
 
