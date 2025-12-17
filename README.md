@@ -38,4 +38,4 @@ Visit http://127.0.0.1:8000/ to view the showcase homepage.
 	".venv\Scripts\python" manage.py createsuperuser
 	```
 2. Visit `/admin/` to add Portfolio Items, Projects, Services, and Testimonials. Upload hero and gallery images per entry.
-3. Uploaded media is stored in the `media/` directory locally. In production, configure `MEDIA_URL` to point to S3 or another persistent storage provider.
+3. Uploaded media is stored in the `media/` directory locally. In production, set an environment variable `MEDIA_ROOT` that points to your Render disk mount path (e.g., `/var/media`) so uploads persist across deploys.
