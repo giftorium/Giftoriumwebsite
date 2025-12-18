@@ -10,6 +10,7 @@
 			<h1>{{ studio_settings.tagline|default:"Immersive environments for ambitious event launches" }}</h1>
 			<p class="hero-summary">{{ studio_settings.intro|default:"Giftorium partners with event, brand, and creative teams to build sensorial experiences that guests remember long after strike." }}</p>
 			<p class="hero-subline">Event-scale art direction, production logic, and technical build-outs for companies that want every touchpoint to feel intentional.</p>
+			<p class="hero-tag-label">Focus tracks</p>
 			<ul class="hero-tags">
 				<li>Product premieres</li>
 				<li>Leadership summits</li>
@@ -17,7 +18,7 @@
 			</ul>
 			<div class="hero-ctas">
 				<a class="primary-cta" href="{% url 'experiences:portfolio-list' %}">View work</a>
-				<a class="text-link" href="#contact">Start a brief →</a>
+				<a class="text-link" href="#contact">Start a brief</a>
 			</div>
 			<div class="hero-metrics">
 				<div class="metric-card">
@@ -47,7 +48,7 @@
 					<img src="{{ featured_portfolio.hero_image.url }}" alt="{{ featured_portfolio.title }} hero visualization">
 				</figure>
 			{% endif %}
-			<a class="text-link" href="{% url 'experiences:portfolio-detail' featured_portfolio.slug %}">Open case study →</a>
+			<a class="text-link" href="{% url 'experiences:portfolio-detail' featured_portfolio.slug %}">Open case study</a>
 		</article>
 		{% endif %}
 	</div>
@@ -60,7 +61,7 @@
 				<p class="eyebrow">Installations</p>
 				<h2>Selected capsules</h2>
 			</div>
-			<a class="text-link" href="{% url 'experiences:portfolio-list' %}">View archive →</a>
+			<a class="text-link" href="{% url 'experiences:portfolio-list' %}">View archive</a>
 		</div>
 		<div class="work-grid">
 			{% for item in work_preview %}

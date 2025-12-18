@@ -1,0 +1,347 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Celebrate Yalda Night - Experience the 7,000-year Persian winter solstice tradition with Hafez poetry fortune wheel and cultural knowledge quiz">
+    <meta name="keywords" content="Yalda Night, Shab-e Yalda, Persian Culture, Hafez Poetry, Winter Solstice">
+    <title>Yalda Night Celebration</title>
+    <link rel="stylesheet" href="{% static 'projects/yalda/styles.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Crimson+Text:wght@400;600&family=Playfair+Display:wght@400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Decorative Persian Pattern Overlay -->
+    <div class="pattern-overlay"></div>
+    
+    <!-- SVG Definitions for Reusable Patterns -->
+    <svg width="0" height="0" style="position: absolute;">
+        <defs>
+            <!-- Persian Star Pattern -->
+            <pattern id="persianStar" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                <polygon points="50,15 61,35 82,35 65,48 71,67 50,54 29,67 35,48 18,35 39,35" 
+                         fill="rgba(212, 175, 55, 0.1)" stroke="rgba(212, 175, 55, 0.3)" stroke-width="1"/>
+            </pattern>
+            
+            <!-- Geometric Diamond Pattern -->
+            <pattern id="persianDiamond" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+                <path d="M40,0 L80,40 L40,80 L0,40 Z" fill="none" stroke="rgba(196, 30, 58, 0.15)" stroke-width="1.5"/>
+                <circle cx="40" cy="40" r="5" fill="rgba(212, 175, 55, 0.2)"/>
+            </pattern>
+            
+            <!-- Arabesque Flower -->
+            <pattern id="arabesque" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
+                <circle cx="60" cy="60" r="25" fill="none" stroke="rgba(212, 175, 55, 0.1)" stroke-width="2"/>
+                <circle cx="60" cy="35" r="8" fill="rgba(196, 30, 58, 0.1)"/>
+                <circle cx="85" cy="60" r="8" fill="rgba(196, 30, 58, 0.1)"/>
+                <circle cx="60" cy="85" r="8" fill="rgba(196, 30, 58, 0.1)"/>
+                <circle cx="35" cy="60" r="8" fill="rgba(196, 30, 58, 0.1)"/>
+            </pattern>
+        </defs>
+    </svg>
+    
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="site-title">
+                    <span class="title-en">Yalda Night</span>
+                </h1>
+                <p class="subtitle">Celebrating the Longest Night of the Year</p>
+            </div>
+            <nav class="main-nav">
+                <button class="nav-btn" data-section="about">About Yalda</button>
+                <button class="nav-btn" data-section="wheel">Fortune Wheel</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-background-image"></div>
+        <div class="hero-ornament-top">
+            <svg viewBox="0 0 1200 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,50 Q150,20 300,50 T600,50 T900,50 T1200,50" stroke="rgba(212, 175, 55, 0.4)" stroke-width="2" fill="none"/>
+                <path d="M0,60 Q150,80 300,60 T600,60 T900,60 T1200,60" stroke="rgba(196, 30, 58, 0.3)" stroke-width="1.5" fill="none"/>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2 class="hero-title">Welcome to the Night of Light</h2>
+                    <p class="hero-description">
+                        Giftorium partnered with CBC's Yalda Night production team to script the full guest journey—experience layout,
+                        limited merch suite, tactile packaging, and the string-based interactive art anchoring the ritual—then shipped
+                        a companion landing page so every guest could pull a digital fāl.
+                    </p>
+                    <div class="hero-symbols">
+                        <span class="symbol"><span class="icon icon-ring" aria-hidden="true"></span>Experience blueprint + scenography</span>
+                        <span class="symbol"><span class="icon icon-line" aria-hidden="true"></span>Merch + keepsake art direction</span>
+                        <span class="symbol"><span class="icon icon-leaf" aria-hidden="true"></span>Interactive string installation</span>
+                        <span class="symbol"><span class="icon icon-ray" aria-hidden="true"></span>Responsive landing page + Fāl engine</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-ornament-bottom">
+            <svg viewBox="0 0 1200 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,50 Q150,70 300,50 T600,50 T900,50 T1200,50" stroke="rgba(212, 175, 55, 0.4)" stroke-width="2" fill="none"/>
+                <circle cx="150" cy="50" r="4" fill="rgba(212, 175, 55, 0.6)"/>
+                <circle cx="450" cy="50" r="4" fill="rgba(212, 175, 55, 0.6)"/>
+                <circle cx="750" cy="50" r="4" fill="rgba(212, 175, 55, 0.6)"/>
+                <circle cx="1050" cy="50" r="4" fill="rgba(212, 175, 55, 0.6)"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="content-section about-section">
+        <div class="section-pattern-bg"></div>
+        <div class="container">
+            <div class="section-header">
+                <svg class="section-ornament" viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10,20 Q30,10 50,20 T90,20" stroke="#D4AF37" stroke-width="2" fill="none"/>
+                    <path d="M110,20 Q130,10 150,20 T190,20" stroke="#D4AF37" stroke-width="2" fill="none"/>
+                    <circle cx="100" cy="20" r="8" fill="#C41E3A" stroke="#D4AF37" stroke-width="2"/>
+                    <circle cx="100" cy="20" r="3" fill="#D4AF37"/>
+                </svg>
+                <h2 class="section-title">The Night When Time Stands Still</h2>
+                <div class="title-decoration"></div>
+            </div>
+            
+            <!-- Story Introduction -->
+            <div class="story-introduction">
+                <p class="story-lead">
+                    Close your eyes and imagine the longest night of the year. A night so ancient, 
+                    it whispers secrets from 7,000 years ago. This is <strong>Yalda Night</strong> 
+                    — Shab-e Yalda — where darkness dances with light, and poetry awakens the soul.
+                </p>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-card story-card">
+                    <div class="card-icon"><span class="icon icon-moon" aria-hidden="true"></span></div>
+                    <h3>What is Yalda?</h3>
+                    <p>
+                        Picture the winter solstice — December 21st, the longest and darkest night of the year. 
+                        In ancient Persia, people believed this was the night when darkness reached its peak, 
+                        holding its breath before surrendering to the returning light. "Yalda" means <em>"birth"</em> 
+                        in Syriac, celebrating the rebirth of the sun. For over seven millennia, Iranians have 
+                        gathered on this sacred night, refusing to sleep, keeping vigil until dawn breaks with 
+                        its promise: from tomorrow, each day will be brighter than the last.
+                    </p>
+                </div>
+
+                <div class="about-card story-card">
+                    <div class="card-icon"><span class="icon icon-seed" aria-hidden="true"></span></div>
+                    <h3>The Sacred Pomegranate</h3>
+                    <p>
+                        Imagine splitting open a pomegranate — each ruby-red seed glistens like a tiny jewel, 
+                        bursting with the essence of life itself. Ancient Persians saw in this fruit the very 
+                        cycle of existence: the crimson of dawn, the blood of life, the promise of fertility. 
+                        On Yalda night, families share pomegranates, their sweet-tart juice staining lips red 
+                        as they celebrate survival through winter's harshness. Each seed is a prayer, a hope, 
+                        a memory of summer's warmth preserved in nature's most beautiful treasure.
+                    </p>
+                </div>
+
+                <div class="about-card story-card">
+                    <div class="card-icon"><span class="icon icon-scroll" aria-hidden="true"></span></div>
+                    <h3>Enter Hafez: The Poet of Hearts</h3>
+                    <p>
+                        Now, let me introduce you to a man who lived 700 years ago but speaks to your soul today. 
+                        <strong>Hafez Shirazi</strong> — a poet whose words dance between the earthly and the divine, 
+                        whose verses contain layers of meaning like Persian carpets woven with golden threads. 
+                        In 14th-century Shiraz, he wrote poems called <em>ghazals</em> — mystical love songs that 
+                        speak of wine (perhaps worldly, perhaps spiritual), of beloved faces (human or divine?), 
+                        of gardens and nightingales, of seeking and longing.
+                    </p>
+                </div>
+
+                <div class="about-card story-card">
+                    <div class="card-icon"><span class="icon icon-star" aria-hidden="true"></span></div>
+                    <h3>The Magic of Fāl-e Hafez</h3>
+                    <p>
+                        Here's where mystery meets tradition: On Yalda night, after hours of storytelling and 
+                        pomegranate-sharing, families perform <strong>Fāl-e Hafez</strong> — fortune-telling through 
+                        Hafez's poetry. Someone makes a wish in their heart, closes their eyes, and opens his book 
+                        of poems to a random page. The poem they find? Iranians believe it's a divine message, 
+                        answering their question, guiding their path. It's like the universe speaking through 
+                        verses written centuries ago, yet perfectly relevant to this moment, to <em>your</em> life.
+                    </p>
+                </div>
+
+                <div class="about-card story-card">
+                    <div class="card-icon"><span class="icon icon-flame" aria-hidden="true"></span></div>
+                    <h3>The Vigil of Light</h3>
+                    <p>
+                        As candles flicker and cast dancing shadows, families gather in a circle. Elders tell 
+                        stories of ancient kings and mythical creatures. Young lovers steal glances. Children 
+                        crack nuts and nibble on dried fruits. The watermelon — yes, summer's fruit eaten in 
+                        winter's heart — symbolizes the warmth we carry within, defying the cold. No one sleeps. 
+                        To sleep on Yalda is to miss the moment when darkness finally yields, when the sun's 
+                        return begins, invisible yet inevitable.
+                    </p>
+                </div>
+
+                <div class="about-card story-card">
+                    <div class="card-icon"><span class="icon icon-orbit" aria-hidden="true"></span></div>
+                    <h3>Why It Matters Today</h3>
+                    <p>
+                        In our modern world of electric lights and heated homes, why does Yalda still matter? 
+                        Because some truths are eternal: darkness will always challenge us, but light always returns. 
+                        We need connection, stories, poetry, and the wisdom of those who came before. When you 
+                        spin our fortune wheel tonight and read a Hafez poem, you're not just playing a game — 
+                        you're joining millions across time who've sought meaning in beauty, who've believed that 
+                        words can heal, guide, and transform. You're touching a thread that connects you to ancient 
+                        Persia, to Hafez in his garden, to families gathering in the glow of Yalda's eternal light.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fortune Wheel Section -->
+    <section id="wheel" class="content-section wheel-section">
+        <div class="wheel-background-image"></div>
+        <div class="container">
+            <div class="section-header">
+                <svg class="section-ornament" viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10,20 Q30,10 50,20 T90,20" stroke="#D4AF37" stroke-width="2" fill="none"/>
+                    <path d="M110,20 Q130,10 150,20 T190,20" stroke="#D4AF37" stroke-width="2" fill="none"/>
+                    <circle cx="100" cy="20" r="8" fill="#C41E3A" stroke="#D4AF37" stroke-width="2"/>
+                    <circle cx="100" cy="20" r="3" fill="#D4AF37"/>
+                </svg>
+                <h2 class="section-title">Hafez Fortune Wheel</h2>
+                <div class="title-decoration"></div>
+                <p class="section-description">
+                    Spin the wheel and receive a divine message from Hafez's 615 mystical poems
+                </p>
+            </div>
+
+            <div class="wheel-container">
+                <div class="fortune-cta">
+                    <p class="cta-description">Ready to receive your divine guidance from Hafez?</p>
+                    <button id="getFaalButton" class="get-faal-button">
+                        <span class="cta-icon"><span class="icon icon-scroll" aria-hidden="true"></span></span>
+                        <span class="cta-text">Get My Fāl-e Hafez</span>
+                    </button>
+                </div>
+                
+                <div class="wheel-wrapper" id="wheelContainer" style="display: none;">
+                    <div class="wheel-pointer"></div>
+                    <canvas id="fortuneWheel" width="600" height="600"></canvas>
+                    <button id="spinButton" class="spin-button">
+                        <span class="button-text">Spin the Wheel</span>
+                    </button>
+                </div>
+                
+                <div id="fortuneResult" class="fortune-result hidden">
+                    <div class="result-card">
+                        <div class="result-header">
+                            <h3>Your Message from Hafez</h3>
+                            <span class="result-close">&times;</span>
+                        </div>
+                        <div class="result-content">
+                            <div class="poem-translation" id="poemTranslation"></div>
+                            <div class="poem-interpretation" id="poemInterpretation"></div>
+                        </div>
+                        <button class="spin-again-btn" id="spinAgainBtn">Spin Again</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Orders Section -->
+    <section class="content-section contact-section">
+        <div class="container">
+            <div class="section-header">
+                <svg class="section-ornament" viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10,20 Q30,10 50,20 T90,20" stroke="#D4AF37" stroke-width="2" fill="none"/>
+                    <path d="M110,20 Q130,10 150,20 T190,20" stroke="#D4AF37" stroke-width="2" fill="none"/>
+                    <circle cx="100" cy="20" r="8" fill="#C41E3A" stroke="#D4AF37" stroke-width="2"/>
+                    <circle cx="100" cy="20" r="3" fill="#D4AF37"/>
+                </svg>
+                <h2 class="section-title">Experience Persian Culture</h2>
+                <div class="title-decoration"></div>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-intro">
+                    <p class="contact-lead">
+                        For CBC we delivered the full stack: spatial concepting, merch and packaging graphics, the interactive string art build,
+                        and the supporting landing page. If you need a similarly end-to-end cultural moment, let's design it together.
+                    </p>
+                </div>
+                
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <div class="contact-icon"><span class="icon icon-mask" aria-hidden="true"></span></div>
+                        <h3>Cultural Workshops</h3>
+                        <p>Interactive presentations about Persian traditions, Yalda Night celebrations, and Hafez poetry</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon"><span class="icon icon-brief" aria-hidden="true"></span></div>
+                        <h3>Corporate Events</h3>
+                        <p>Custom cultural experiences for team building and diversity celebrations</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon"><span class="icon icon-globe" aria-hidden="true"></span></div>
+                        <h3>Educational Programs</h3>
+                        <p>School and university programs introducing Persian culture and history</p>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="contact-label">📧 Email:</span>
+                            <a href="mailto:mahya.eslami@example.com" class="contact-link">mahya.eslami@example.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">💼 LinkedIn:</span>
+                            <a href="https://linkedin.com/in/mahyaeslami" target="_blank" class="contact-link">linkedin.com/in/mahyaeslami</a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">🌐 Website:</span>
+                            <a href="https://mahyaeslami.com" target="_blank" class="contact-link">mahyaeslami.com</a>
+                        </div>
+                    </div>
+                    <p class="contact-cta">Let's create an unforgettable Persian cultural experience together!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About This Experience</h4>
+                    <p>
+                        Created to share the beauty and wisdom of Yalda Night with the world. 
+                        May this celebration bring light, joy, and connection to all.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Yalda Blessings</h4>
+                    <p>Wishing you a blessed Yalda Night filled with love, light, and poetry.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Yalda Night Celebration. Honoring 7,000 years of Persian heritage.</p>
+                <p class="copyright-mahya">Created with ❤️ by Mahya Eslami</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'projects/yalda/script.js' %}"></script>
+</body>
+</html>

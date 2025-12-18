@@ -7,6 +7,7 @@
     --card-alt: #1e1f22;
     --accent: #ff7855;
     --accent-soft: #2a2724;
+    --silver: #cfcac2;
     font-size: 18px;
 }
 
@@ -16,7 +17,7 @@
 
 body {
     margin: 0;
-    font-family: 'Space Grotesk', 'Suisse', 'Helvetica Neue', sans-serif;
+    font-family: 'Sora', 'Space Grotesk', 'Suisse', 'Helvetica Neue', sans-serif;
     background: radial-gradient(circle at 30% -10%, rgba(255, 120, 85, 0.12), transparent 50%), #0f1012;
     color: var(--fg);
     line-height: 1.55;
@@ -150,6 +151,14 @@ main {
     line-height: 1.1;
 }
 
+.hero-tag-label {
+    margin: 0;
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
 .hero-subline {
     margin: 1rem 0 0.75rem;
     color: var(--fg);
@@ -159,18 +168,32 @@ main {
 .hero-tags {
     list-style: none;
     padding: 0;
-    margin: 0 0 1.25rem;
+    margin: 0.4rem 0 1.25rem;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.6rem;
+    gap: 1rem;
 }
 
 .hero-tags li {
-    padding: 0.35rem 0.9rem;
-    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    color: var(--silver);
+}
+
+.hero-tags li::before {
+    content: '';
+    width: 0.45rem;
+    height: 0.45rem;
     border-radius: 999px;
-    background: var(--card-alt);
-    font-size: 0.85rem;
+    background: var(--silver);
+    opacity: 0.75;
 }
 
 .hero-summary {
@@ -232,19 +255,28 @@ main {
 }
 
 .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
     text-decoration: none;
     color: var(--fg);
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: 0.08em;
 }
 
 .text-link::after {
     content: '';
-    display: inline-block;
-    width: 36px;
-    height: 1px;
-    background: currentColor;
-    margin-left: 0.5rem;
-    transform: translateY(-0.35em);
+    width: 0.65rem;
+    height: 0.65rem;
+    border-radius: 50%;
+    border: 1px solid var(--silver);
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.text-link:hover::after,
+.text-link:focus-visible::after {
+    background: var(--silver);
+    border-color: var(--silver);
 }
 
 .featured-tile {
