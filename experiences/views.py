@@ -14,6 +14,20 @@ def home(request):
 	services = Service.objects.all()
 	featured_portfolio = portfolio_items.filter(featured=True).first() or portfolio_items.first()
 	work_preview = portfolio_items[:4]
+	capabilities = [
+		{
+			"title": "Spatial storytelling",
+			"summary": "Two artists craft the scenography, graphics, and tactile layers that define each event moment.",
+		},
+		{
+			"title": "Technical + business ops",
+			"summary": "Our tech/operations lead architects interactives, partnerships, and on-site logistics so ideas actually ship.",
+		},
+		{
+			"title": "Event-scale production",
+			"summary": "We build experiences for launches, museum nights, and cultural programs—and can flex beyond hospitality roots.",
+		},
+	]
 
 	if request.method == "POST":
 		inquiry_form = InquiryForm(request.POST)
@@ -30,6 +44,7 @@ def home(request):
 		"experiences/home.html",
 		{
 			"services": services,
+			"capabilities": capabilities,
 			"work_preview": work_preview,
 			"featured_portfolio": featured_portfolio,
 			"inquiry_form": inquiry_form,

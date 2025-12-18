@@ -1,11 +1,12 @@
 :root {
-    --bg: #f6f3ee;
-    --fg: #161513;
-    --muted: #6b6760;
-    --line: #e0dbd1;
-    --card: #ffffff;
-    --card-alt: #fdf9f3;
-    --accent: #c94a2e;
+    --bg: #111110;
+    --fg: #f5f2ed;
+    --muted: #9b978f;
+    --line: #2b2a28;
+    --card: #1b1b1a;
+    --card-alt: #232220;
+    --accent: #ff7b52;
+    --accent-soft: #2f2b27;
     font-size: 18px;
 }
 
@@ -16,7 +17,7 @@
 body {
     margin: 0;
     font-family: 'Space Grotesk', 'Suisse', 'Helvetica Neue', sans-serif;
-    background: var(--bg);
+    background: radial-gradient(circle at top, #181715, #0d0d0c 65%);
     color: var(--fg);
     line-height: 1.5;
 }
@@ -43,7 +44,7 @@ main {
 .site-header {
     position: sticky;
     top: 0;
-    background: rgba(246, 243, 238, 0.9);
+    background: rgba(16, 16, 15, 0.92);
     border-bottom: 1px solid var(--line);
     backdrop-filter: blur(12px);
     z-index: 20;
@@ -156,12 +157,13 @@ main {
     display: inline-flex;
     padding: 0.9rem 2.1rem;
     border-radius: 999px;
-    border: 1px solid var(--fg);
-    background: var(--fg);
-    color: var(--bg);
+    border: 1px solid transparent;
+    background: linear-gradient(120deg, var(--accent), #ff5c40);
+    color: #110f0d;
     font-weight: 600;
     text-decoration: none;
     letter-spacing: 0.05em;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
 }
 
 .primary-cta:hover,
@@ -193,6 +195,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
 }
 
 .featured-medium {
@@ -264,6 +267,7 @@ main {
     background: var(--card);
     display: flex;
     flex-direction: column;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
 }
 
 .work-media {
@@ -311,6 +315,30 @@ main {
     border-bottom: 1px solid var(--line);
 }
 
+.capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+}
+
+.capability-card {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 1.4rem;
+    background: var(--card-alt);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.capability-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.capability-card p {
+    margin: 0;
+    color: var(--muted);
+}
+
 .service-list {
     list-style: none;
     padding: 0;
@@ -330,12 +358,18 @@ main {
 
 .contact-panel {
     border-bottom: 1px solid var(--line);
+    background: var(--card);
 }
 
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 2rem;
+    background: var(--card-alt);
+    padding: 2.4rem;
+    border-radius: 24px;
+    border: 1px solid var(--line);
+    box-shadow: 0 25px 55px rgba(0, 0, 0, 0.4);
 }
 
 .contact-note {

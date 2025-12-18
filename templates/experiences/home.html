@@ -76,17 +76,18 @@
 		<div class="section-head minimal">
 			<div>
 				<p class="eyebrow">Capabilities</p>
-				<h2>How we contribute</h2>
+				<h2>Lean crew for event-scale art</h2>
 			</div>
-			<p class="section-note">Concise creative + production partners for tactile exhibitions and branded drops.</p>
+			<p class="section-note">Two artists shape the narrative and visuals while our tech/business lead keeps interactive systems, partners, and budgets aligned.</p>
 		</div>
-		<ul class="service-list compact">
-			{% for item in services %}
-				<li>{{ item }}</li>
-			{% empty %}
-				<li>Bespoke programming on request</li>
+		<div class="capabilities-grid">
+			{% for card in capabilities %}
+			<article class="capability-card">
+				<h3>{{ card.title }}</h3>
+				<p>{{ card.summary }}</p>
+			</article>
 			{% endfor %}
-		</ul>
+		</div>
 	</div>
 </section>
 
@@ -94,8 +95,8 @@
 	<div class="site-shell contact-grid">
 		<div>
 			<p class="eyebrow">Start a collaboration</p>
-			<h2>Send a brief, deck, or loose prompt.</h2>
-			<p class="contact-note">We answer within two days with next steps and a lightweight sprint plan.</p>
+			<h2>Send three quick details.</h2>
+			<p class="contact-note">Name, email, and the event moment you are planning—we reply within two days with a lightweight plan.</p>
 			<p class="contact-email"><a href="mailto:hello@gogiftorium.com">hello@gogiftorium.com</a></p>
 		</div>
 		<form method="post" class="inquiry-form">
