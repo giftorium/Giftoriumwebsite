@@ -20,9 +20,8 @@
                 <span>{{ studio_settings.studio_name|default:"Giftorium" }}</span>
             </a>
             <nav class="site-nav">
-                <a href="{% url 'experiences:home' %}#portfolio">Portfolio</a>
-                <a href="{% url 'experiences:home' %}#projects">Projects</a>
-                <a href="{% url 'experiences:home' %}#services">Services</a>
+                <a href="{% url 'experiences:portfolio-list' %}">Portfolio</a>
+                <a href="{% url 'experiences:home' %}#services">Capabilities</a>
                 <a href="{% url 'experiences:team' %}">Team</a>
                 <a href="{% url 'experiences:home' %}#contact">Contact</a>
             </nav>
@@ -42,8 +41,8 @@
 
     <footer class="site-footer">
         <div class="site-shell">
-            <p>© {{ now|default:2025 }} Giftorium. Crafted in collaboration with daring producers.</p>
-            <p>Email: <a href="mailto:hello@gogiftorium.com">hello@gogiftorium.com</a></p>
+            <p>© {{ now|default:2025 }} Giftorium</p>
+            <p><a href="mailto:hello@gogiftorium.com">hello@gogiftorium.com</a></p>
         </div>
     </footer>
 </body>

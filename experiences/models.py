@@ -18,6 +18,7 @@ class PortfolioItem(TimestampedModel):
 	location = models.CharField(max_length=120, blank=True)
 	year = models.CharField(max_length=10, blank=True)
 	hero_image = models.ImageField(upload_to='portfolio/hero/')
+	grid_image = models.ImageField(upload_to='portfolio/grid/', blank=True)
 	outcome = models.TextField(blank=True)
 	featured = models.BooleanField(default=False)
 

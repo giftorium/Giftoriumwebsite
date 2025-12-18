@@ -5,16 +5,15 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 
 from .forms import InquiryForm
-from .models import PortfolioItem, Project, Service, TeamMember, Testimonial
+from .models import PortfolioItem, Service, TeamMember
 
 
 def home(request):
 	"""Render the studio showcase landing page."""
-	projects = Project.objects.all()
+	portfolio_items = PortfolioItem.objects.prefetch_related('gallery_images')
 	services = Service.objects.all()
-	testimonials = Testimonial.objects.all()
-	portfolio_items = PortfolioItem.objects.prefetch_related('gallery_images').all()
 	featured_portfolio = portfolio_items.filter(featured=True).first() or portfolio_items.first()
+	work_preview = portfolio_items[:4]
 
 	if request.method == "POST":
 		inquiry_form = InquiryForm(request.POST)
@@ -30,27 +29,29 @@ def home(request):
 		request,
 		"experiences/home.html",
 		{
-			"projects": projects,
 			"services": services,
-			"testimonials": testimonials,
-			"portfolio": portfolio_items,
+			"work_preview": work_preview,
 			"featured_portfolio": featured_portfolio,
 			"inquiry_form": inquiry_form,
 		},
 	)
 
 
+def portfolio_list(request):
+	"""Display the full archive of studio work."""
+	items = PortfolioItem.objects.prefetch_related('gallery_images')
+	return render(request, "experiences/portfolio_list.html", {"items": items})
+
+
 def portfolio_detail(request, slug):
 	"""Display a focused view of a single portfolio piece."""
 	item = get_object_or_404(PortfolioItem.objects.prefetch_related('gallery_images'), slug=slug)
-	other_items = PortfolioItem.objects.exclude(slug=slug)
 
 	return render(
 		request,
 		"experiences/portfolio_detail.html",
 		{
 			"item": item,
-			"other_items": other_items,
 		},
 	)
 
@@ -58,6 +59,11 @@ def portfolio_detail(request, slug):
 def team(request):
 	members = TeamMember.objects.all()
 	return render(request, "experiences/team.html", {"team_members": members})
+
+
+def yalda_hafez_faal(request):
+	"""Render the archived Yalda CBC Hafez Faal experience."""
+	return render(request, "projects/yalda_hafez_faal.html")
 
 
 def _notify_team_of_inquiry(inquiry):

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Giftorium · Portfolio{% endblock title %}
+
+{% block content %}
+<section class="portfolio-archive">
+    <div class="site-shell">
+        <div class="archive-head">
+            <p class="eyebrow">Portfolio</p>
+            <h1>Complete installations</h1>
+            <p class="archive-note">A concise index of capsule drops, retail moments, and cultural commissions.</p>
+        </div>
+        <div class="archive-grid">
+            {% for item in items %}
+                <article class="archive-card">
+                    {% if item.grid_image %}
+                        <img src="{{ item.grid_image.url }}" alt="{{ item.title }} visualization" class="archive-media">
+                    {% elif item.hero_image %}
+                        <img src="{{ item.hero_image.url }}" alt="{{ item.title }} visualization" class="archive-media">
+                    {% endif %}
+                    <div class="archive-body">
+                        <p class="archive-meta">
+                            {% if item.year %}{{ item.year }}{% endif %}
+                            {% if item.year and item.location %} · {% endif %}
+                            {% if item.location %}{{ item.location }}{% endif %}
+                        </p>
+                        <h2>{{ item.title }}</h2>
+                        <p class="archive-medium">{{ item.medium }}</p>
+                        <div class="archive-links">
+                            <a href="{% url 'experiences:portfolio-detail' item.slug %}">Case study</a>
+                            <a href="{% url 'experiences:portfolio-detail' item.slug %}#gallery">Gallery</a>
+                        </div>
+                    </div>
+                </article>
+            {% empty %}
+                <p class="empty-note">Archive entries are coming soon.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock content %}
