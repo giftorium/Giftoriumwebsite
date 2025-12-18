@@ -81,11 +81,11 @@ class Testimonial(TimestampedModel):
 class StudioSettings(models.Model):
 	studio_name = models.CharField(max_length=120, default="Giftorium")
 	eyebrow = models.CharField(max_length=120, default="Portfolio First")
-	tagline = models.CharField(max_length=200, default="Immersive environments for bold cultural moments")
+	tagline = models.CharField(max_length=200, default="Immersive environments for ambitious event launches")
 	intro = models.TextField(
 		default=(
-			"Giftorium collaborates with museums, brands, and cultural leaders to craft sensorial experiences "
-			"that guests remember well after the lights dim."
+			"Giftorium partners with event, brand, and creative teams to build sensorial experiences "
+			"that guests remember long after strike."
 		)
 	)
 	hero_note = models.CharField(

@@ -1,12 +1,12 @@
 :root {
-    --bg: #111110;
-    --fg: #f5f2ed;
-    --muted: #9b978f;
-    --line: #2b2a28;
-    --card: #1b1b1a;
-    --card-alt: #232220;
-    --accent: #ff7b52;
-    --accent-soft: #2f2b27;
+    --bg: #0f1012;
+    --fg: #f7f4ef;
+    --muted: #9d9a93;
+    --line: rgba(255, 255, 255, 0.08);
+    --card: #161719;
+    --card-alt: #1e1f22;
+    --accent: #ff7855;
+    --accent-soft: #2a2724;
     font-size: 18px;
 }
 
@@ -17,14 +17,30 @@
 body {
     margin: 0;
     font-family: 'Space Grotesk', 'Suisse', 'Helvetica Neue', sans-serif;
-    background: radial-gradient(circle at top, #181715, #0d0d0c 65%);
+    background: radial-gradient(circle at 30% -10%, rgba(255, 120, 85, 0.12), transparent 50%), #0f1012;
     color: var(--fg);
-    line-height: 1.5;
+    line-height: 1.55;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 70% 0%, rgba(255, 255, 255, 0.08), transparent 55%);
+    opacity: 0.9;
+    pointer-events: none;
+    z-index: -1;
 }
 
 img {
     max-width: 100%;
     display: block;
+}
+
+.site-shell {
+    width: min(1120px, calc(100vw - 2rem));
+    margin: 0 auto;
+    padding: 3rem 0;
 }
 
 a {
@@ -33,12 +49,6 @@ a {
 
 main {
     min-height: 60vh;
-}
-
-.site-shell {
-    width: min(1080px, calc(100vw - 2rem));
-    margin: 0 auto;
-    padding: 2.75rem 0;
 }
 
 .site-header {
@@ -140,6 +150,29 @@ main {
     line-height: 1.1;
 }
 
+.hero-subline {
+    margin: 1rem 0 0.75rem;
+    color: var(--fg);
+    font-size: 1.05rem;
+}
+
+.hero-tags {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.hero-tags li {
+    padding: 0.35rem 0.9rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--card-alt);
+    font-size: 0.85rem;
+}
+
 .hero-summary {
     max-width: 52ch;
     color: var(--muted);
@@ -151,6 +184,33 @@ main {
     gap: 1rem;
     flex-wrap: wrap;
     align-items: center;
+}
+
+.hero-metrics {
+    margin-top: 1.75rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.85rem;
+}
+
+.metric-card {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 0.85rem 1rem;
+    background: var(--card);
+}
+
+.metric-value {
+    display: block;
+    font-size: 1.45rem;
+    font-weight: 600;
+}
+
+.metric-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
 }
 
 .primary-cta {
@@ -313,6 +373,32 @@ main {
 
 .services-minimal {
     border-bottom: 1px solid var(--line);
+}
+
+.section-divider {
+    margin: 2.5rem 0 1.5rem;
+    height: 1px;
+    background: var(--line);
+}
+
+.service-pill-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.service-pill-list li {
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: transparent;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
 }
 
 .capabilities-grid {

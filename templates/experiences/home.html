@@ -7,11 +7,31 @@
 	<div class="site-shell hero-grid">
 		<div class="hero-copy">
 			<p class="eyebrow">{{ studio_settings.eyebrow|default:"Giftorium Studio" }}</p>
-			<h1>{{ studio_settings.tagline|default:"Immersive environments for bold cultural moments" }}</h1>
-			<p class="hero-summary">{{ studio_settings.intro|default:"Giftorium collaborates with museums, brands, and cultural leaders to craft sensorial experiences that guests remember well after the lights dim." }}</p>
+			<h1>{{ studio_settings.tagline|default:"Immersive environments for ambitious event launches" }}</h1>
+			<p class="hero-summary">{{ studio_settings.intro|default:"Giftorium partners with event, brand, and creative teams to build sensorial experiences that guests remember long after strike." }}</p>
+			<p class="hero-subline">Event-scale art direction, production logic, and technical build-outs for companies that want every touchpoint to feel intentional.</p>
+			<ul class="hero-tags">
+				<li>Product premieres</li>
+				<li>Leadership summits</li>
+				<li>Immersive pop-ups</li>
+			</ul>
 			<div class="hero-ctas">
 				<a class="primary-cta" href="{% url 'experiences:portfolio-list' %}">View work</a>
 				<a class="text-link" href="#contact">Start a brief →</a>
+			</div>
+			<div class="hero-metrics">
+				<div class="metric-card">
+					<span class="metric-value">6+</span>
+					<span class="metric-label">Years shipping event builds</span>
+				</div>
+				<div class="metric-card">
+					<span class="metric-value">20</span>
+					<span class="metric-label">Cities activated</span>
+				</div>
+				<div class="metric-card">
+					<span class="metric-value">∞</span>
+					<span class="metric-label">Custom touchpoints per brief</span>
+				</div>
 			</div>
 		</div>
 		{% if featured_portfolio %}
@@ -78,7 +98,7 @@
 				<p class="eyebrow">Capabilities</p>
 				<h2>Lean crew for event-scale art</h2>
 			</div>
-			<p class="section-note">Two artists shape the narrative and visuals while our tech/business lead keeps interactive systems, partners, and budgets aligned.</p>
+			<p class="section-note">We concept, art direct, and technically produce live experiences for launches, summits, and brand moments.</p>
 		</div>
 		<div class="capabilities-grid">
 			{% for card in capabilities %}
@@ -88,6 +108,14 @@
 			</article>
 			{% endfor %}
 		</div>
+		{% if services %}
+		<div class="section-divider"></div>
+		<ul class="service-pill-list">
+			{% for item in services %}
+			<li>{{ item }}</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
 	</div>
 </section>
 

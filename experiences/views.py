@@ -17,15 +17,15 @@ def home(request):
 	capabilities = [
 		{
 			"title": "Spatial storytelling",
-			"summary": "Two artists craft the scenography, graphics, and tactile layers that define each event moment.",
+			"summary": "We art direct scenography, graphics, and tactile layers that ground each live experience.",
 		},
 		{
 			"title": "Technical + business ops",
-			"summary": "Our tech/operations lead architects interactives, partnerships, and on-site logistics so ideas actually ship.",
+			"summary": "We engineer interactives, partner workflows, and logistics so ambitious ideas can be produced on-site.",
 		},
 		{
 			"title": "Event-scale production",
-			"summary": "We build experiences for launches, museum nights, and cultural programs—and can flex beyond hospitality roots.",
+			"summary": "We deliver pop-ups, launches, and summits that extend beyond hospitality roots without leaning on any single niche.",
 		},
 	]
 
